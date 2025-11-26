@@ -4,7 +4,7 @@ package constants;
  * Contains constant API endpoints for cryptocurrency exchanges
  * Centralized configuration for all API URLs used in the project
  *
- * @author Petr Pestryakov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */

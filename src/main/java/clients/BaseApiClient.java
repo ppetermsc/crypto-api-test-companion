@@ -8,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
  * Base client class providing common functionality for all API clients
  * Contains shared methods for HTTP requests, error handling, and configuration
  *
- * @author Petr Pestryakov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */

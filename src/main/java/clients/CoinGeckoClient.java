@@ -11,7 +11,7 @@ import java.util.Map;
  * Client for interacting with CoinGecko REST API
  * Provides methods to access cryptocurrency market data and prices
  *
- * @author Petr Pestryakov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */

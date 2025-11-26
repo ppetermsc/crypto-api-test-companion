@@ -10,7 +10,7 @@ import java.io.IOException;
  * Utility class for JSON validation and schema verification
  * Provides methods to validate JSON structure and content
  *
- * @author Petr Pestryakov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */

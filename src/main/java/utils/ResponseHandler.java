@@ -7,7 +7,7 @@ import io.restassured.response.Response;
  * Utility class for handling and processing API responses
  * Provides methods to extract data and validate response properties
  *
- * @author Petr Pestryakov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */
