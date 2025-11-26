@@ -1,7 +1,5 @@
 package clients;
 
-import constants.ApiEndpoints;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -10,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
  * Base client class providing common functionality for all API clients
  * Contains shared methods for HTTP requests, error handling, and configuration
  *
- * @author Your Name
+ * @author Petr Pestryakov
  * @version 1.0
  * @since 2025
  */

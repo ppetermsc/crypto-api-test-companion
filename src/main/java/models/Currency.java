@@ -6,7 +6,7 @@ import lombok.Data;
  * Represents a cryptocurrency with market data
  * Used for API responses from CoinGecko and other cryptocurrency data providers
  *
- * @author PETR PESTRIAKOV
+ * @author Petr Pestryakov
  * @version 1.0
  * @since 2025
  */

@@ -7,7 +7,7 @@ import java.util.List;
  * Represents exchange information including trading rules and symbol data
  * Used for Binance API /api/v3/exchangeInfo endpoint
  *
- * @author PETR PESTRIAKOV
+ * @author Petr Pestryakov
  * @version 1.0
  * @since 2025
  */

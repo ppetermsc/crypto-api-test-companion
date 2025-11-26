@@ -6,7 +6,7 @@ import lombok.Data;
  * Represents price ticker data for trading pairs
  * Used for Binance API responses and real-time price information
  *
- * @author PETR PESTRIAKOV
+ * @author Petr Pestryakov
  * @version 1.0
  * @since 2025
  */

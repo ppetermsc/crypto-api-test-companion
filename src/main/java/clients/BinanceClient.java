@@ -9,7 +9,7 @@ import models.Ticker;
  * Client for interacting with Binance REST API
  * Provides methods to access market data and exchange information
  *
- * @author Your Name
+ * @author Petr Pestryakov
  * @version 1.0
  * @since 2025
  */
