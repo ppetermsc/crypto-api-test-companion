@@ -5,7 +5,6 @@ import constants.ApiEndpoints;
 import models.Ticker;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utils.ResponseHandler;
 
 import static org.testng.Assert.*;
 

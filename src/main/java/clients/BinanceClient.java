@@ -9,7 +9,7 @@ import models.Ticker;
  * Client for interacting with Binance REST API
  * Provides methods to access market data and exchange information
  *
- * @author Peter Pestriakov
+ * @author Peter Petrov
  * @version 1.0
  * @since 2025
  */
@@ -19,7 +19,7 @@ public class BinanceClient extends BaseApiClient {
      * Constructs Binance API client with Binance base URL
      */
     public BinanceClient() {
-        super(ApiEndpoints.BINANCE_BASE_URL);  // 👈 Теперь константы используются!
+        super(ApiEndpoints.BINANCE_BASE_URL);
     }
 
     /**
@@ -28,6 +28,7 @@ public class BinanceClient extends BaseApiClient {
      * @return true if API responds successfully, false otherwise
      */
     public boolean ping() {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = get(ApiEndpoints.BINANCE_PING);
         return response.getStatusCode() == ApiEndpoints.HTTP_OK;
     }
@@ -38,6 +39,7 @@ public class BinanceClient extends BaseApiClient {
      * @return server time in milliseconds
      */
     public long getServerTime() {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = get(ApiEndpoints.BINANCE_SERVER_TIME);
         validateStatusCode(response, ApiEndpoints.HTTP_OK);
         return response.jsonPath().getLong("serverTime");
@@ -49,6 +51,7 @@ public class BinanceClient extends BaseApiClient {
      * @return ExchangeInfo object containing exchange data
      */
     public ExchangeInfo getExchangeInfo() {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = get(ApiEndpoints.BINANCE_EXCHANGE_INFO);
         validateStatusCode(response, ApiEndpoints.HTTP_OK);
         return response.as(ExchangeInfo.class);
@@ -61,6 +64,7 @@ public class BinanceClient extends BaseApiClient {
      * @return Ticker object with price information
      */
     public Ticker getPrice(String symbol) {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = getWithParam(ApiEndpoints.BINANCE_TICKER_PRICE,
                 ApiEndpoints.PARAM_SYMBOL, symbol);
         validateStatusCode(response, ApiEndpoints.HTTP_OK);
@@ -74,6 +78,7 @@ public class BinanceClient extends BaseApiClient {
      * @return Ticker object with 24hr statistics
      */
     public Ticker get24hrTicker(String symbol) {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = getWithParam(ApiEndpoints.BINANCE_TICKER_24HR,
                 ApiEndpoints.PARAM_SYMBOL, symbol);
         validateStatusCode(response, ApiEndpoints.HTTP_OK);
@@ -87,6 +92,7 @@ public class BinanceClient extends BaseApiClient {
      * @return true if ping response time is within limits
      */
     public boolean checkResponseTime(long maxResponseTime) {
+        sleepBetweenRequests(); // Rate limit protection
         Response response = get(ApiEndpoints.BINANCE_PING);
         validateResponseTime(response, maxResponseTime);
         return response.getStatusCode() == ApiEndpoints.HTTP_OK;

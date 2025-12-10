@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Data;
  * @since 2025
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Ticker {
     /**
      * Trading pair symbol (e.g., "BTCUSDT", "ETHUSDT")
@@ -21,6 +23,11 @@ public class Ticker {
      * Current price of the trading pair
      */
     private Double price;
+
+    /**
+     * Last executed trade price
+     */
+    private Double lastPrice;
 
     /**
      * Price change in the last 24 hours
