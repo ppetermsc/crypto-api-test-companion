@@ -17,7 +17,7 @@ import static org.testng.Assert.*;
  * Test class for CoinGecko API functionality
  * Contains tests for cryptocurrency market data and price information
  *
- * @author Peter Petrov
+ * @author Peter Pestriakov
  * @version 1.0
  * @since 2025
  */

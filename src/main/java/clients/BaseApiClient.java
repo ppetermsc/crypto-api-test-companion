@@ -158,8 +158,8 @@ public class BaseApiClient {
      * Sets the request delay
      * @param requestDelayMs delay in milliseconds
      */
-    public void setRequestDelayMs(long requestDelayMs) {
-        this.requestDelayMs = requestDelayMs;
-        logger.debug("Request delay set to {}ms", requestDelayMs);
-    }
+//    public void setRequestDelayMs(long requestDelayMs) {
+//        this.requestDelayMs = requestDelayMs;
+//        logger.debug("Request delay set to {}ms", requestDelayMs);
+//    }
 }
