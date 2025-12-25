@@ -28,7 +28,7 @@ jobs:
           cache: maven
 
       - name: Cache Maven dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4  # ОБНОВЛЕНО: с v3 на v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -47,26 +47,24 @@ jobs:
             -Dmaven.wagon.http.pool=false
             -Dmaven.wagon.http.retryHandler.count=3
 
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          # Генерируем отчёт по данным, собранным на предыдущем шаге
+          mvn allure:report -Dallure.results.directory=target/allure-results
+
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4  # ОБНОВЛЕНО: с v3 на v4
+        with:
+          name: allure-report-java-${{ matrix.java }}
+          path: target/site/allure-maven/  # Явно указываем известный путь к отчёту
+          retention-days: 14
+
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # ОБНОВЛЕНО: с v3 на v4
         with:
           name: test-results-java-${{ matrix.java }}
           path: target/surefire-reports/
           retention-days: 7
-
-      - name: Generate Allure Report
-        if: always()
-        run: |
-          mvn allure:report
-          # Копируем отчет в отдельную папку для артефакта
-          mkdir -p allure-report
-          cp -r target/site/allure-maven/* allure-report/ 2>/dev/null || true
-
-      - name: Upload Allure Report
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-report-java-${{ matrix.java }}
-          path: allure-report/
-          retention-days: 14
